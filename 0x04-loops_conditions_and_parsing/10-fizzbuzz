@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Bash script that displays numbers from 1 to 100
+#FIZZBUZZ bash challenge
+
+for fizzbuzz in {1..100}
+do
+	if [ $((fizzbuzz % 3)) -eq 0 ] && [ $((fizzbuzz % 5)) -eq 0 ]
+	then
+		echo "FizzBuzz"
+	elif [ $((fizzbuzz % 3)) -eq 0 ]
+	then
+		echo "Fizz"
+	elif [ $((fizzbuzz % 5)) -eq 0 ]
+	then
+		echo "Buzz"
+	else
+		echo $fizzbuzz
+	fi
+done

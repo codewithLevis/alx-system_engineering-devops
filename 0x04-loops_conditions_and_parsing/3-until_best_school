@@ -2,7 +2,7 @@
 # Display Best school ten times
 
 count=0
-until [ $count -eq 10 ]
+until [ "$count" -eq 10 ]
 do
     echo "Best school"
     ((count++))
