@@ -35,5 +35,5 @@ int main(void)
 		}
 	}
 	infinite_while();
-	return 0;
+	return (0)i;
 }
