@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Install nginx
+
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get install -y nginx
+
+sudo chmod 755 /var/www/html
+sudo chmod -R 755 /var/www
+
+echo "Hello world!" | sudo tee /var/www/html/index.nginx-debian.html
+
+#configure Nginx
+echo "
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
+ 
+	location ~ /redirect_me {
+                return 301 https://www.example.com/;
+        }
+}
+" | sudo tee /etc/nginx/sites-available/default
+
+#restart Nginx 
+sudo service nginx restart
