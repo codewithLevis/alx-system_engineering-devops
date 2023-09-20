@@ -12,9 +12,9 @@
 *nat
 :PREROUTING ACCEPT [0:0]
 
-# Forward traffic from port 8000 to port 80.
--A PREROUTING -p tcp --dport 8000 -j DNAT --to-destination 54.237.217.75:80
-
+# Forward traffic from port 8080 to port 80.
+-A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 54.237.217.75:80
+COMMIT
 
 # Don't delete these required lines, otherwise there will be errors
 *filter
